@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Issuance from "./issuance"
-import Verification from "./verification"
+import Issuance from "./pages/issuance"
+import Verification from "./pages/verification"
 function App() {
   
   return (
