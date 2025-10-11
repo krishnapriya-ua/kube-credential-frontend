@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import axios,{AxiosError} from "axios";
+import validator from 'validator'
+import { toast } from "react-toastify";
 
 export default function Issuance() {
   const [fullname, setFullname] = useState('')
@@ -11,42 +13,48 @@ export default function Issuance() {
 
   const handleSubmit = async() => {
     try {
+      if(!validator.isEmail(email)){
+          toast.error('Enter valid Email!')
+      }
+      else{
       if(fullname.trim()!=='' && email.trim()!==''){
         const response = await axios.post('http://localhost:3000/issue',{fullname,email})
         if(response.data.success){
-          alert(response.data.message)
+          toast.success(response.data.message)
           console.log(response.data.Credentials,'Credentials created from back to front')
           setFullname('')
           setEmail('')
         }
         else{
-          alert(response.data.message)
+          toast.info(response.data.message)
         }
       }
       else{
-        alert('All fields are necessary!!')
+        toast.error('All fields are necessary!!')
       }
+    }
 
       
     } catch (err) {
       const error = err as AxiosError<{ message: string }>;
       console.log(error, 'Error posting credential');
       const msg = error.response?.data?.message || 'Something went wrong';
-      alert(msg);
+      toast.error(msg);
     }
   }
 
   return (
     <div>
-        <div className="container">    
-            <div className="m-5">
-                <form className="text-center">
-                   <TextField variant='standard' className="mb-2" fullWidth label='Fullname' value={fullname} onChange={(e)=>setFullname(e.target.value)} required/> <br />
-                   <TextField variant="standard"  className="mb-2" fullWidth label='Email' value={email} onChange={(e)=>setEmail(e.target.value)} required/> <br />
-                   <Button className="my-3 text-center" style={{background:'black'}} onClick={handleSubmit} variant="contained">Issue Credential</Button>
+        <div className="verify-container">    
+            <div className="verify-card">
+               <h3 className="verify-title">Issue Credential</h3>
+                <form className="verify-form">
+                   <TextField variant='standard'  fullWidth label='Fullname' value={fullname} onChange={(e)=>setFullname(e.target.value)} required/> <br />
+                   <TextField variant="standard"  fullWidth label='Email' value={email} onChange={(e)=>setEmail(e.target.value)} required/> <br />
+                   <Button className="verify-btn" style={{background:'black'}} onClick={handleSubmit} variant="contained">Issue Credential</Button>
                 </form>
             </div>
-            <Button><Link to='/verification'>Verification</Link></Button>
+            <Link className="verify-link" to='/verification'>Verification</Link>
         </div>
     </div>
   )

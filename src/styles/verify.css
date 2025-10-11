@@ -1,0 +1,55 @@
+.verify-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  flex-direction: column;
+}
+
+.verify-card {
+  width: 380px;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.verify-title {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.verify-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.verify-btn {
+  background-color: #000 !important;
+  border-radius: 8px !important;
+  padding: 0.6rem 0 !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  margin-top: 1rem !important;
+}
+
+.verify-btn:hover {
+  background-color: #222 !important;
+}
+
+.verify-link {
+  display: inline-block;
+  margin-top: 1.6rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.verify-link:hover {
+  color: #000;
+}
