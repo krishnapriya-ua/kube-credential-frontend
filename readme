@@ -1,0 +1,38 @@
+Kube Credential - Frontend
+--------------------------
+
+This repository contains the React + Vite + TypeScript frontend for the Kube Credential system. It provides two pages:
+
+Issuance — to issue credentials
+
+Verification — to verify issued credentials
+
+The frontend communicates with two backend microservices deployed on Render.
+
+🚀 Live Demo
+-------------
+
+See the live frontend here:
+https://kube-credential.kptech.online
+
+⚠️ The backend microservices may take 5–10 seconds to initialize on first request.
+
+
+
+🛠 Installation
+---------------
+
+Clone the repository:
+
+git clone https://github.com/krishnapriya-ua/kube-credential-frontend.git
+cd kube-credential-frontend
+
+
+Install dependencies:
+
+npm install
+
+
+Run development server:
+
+npm run dev
