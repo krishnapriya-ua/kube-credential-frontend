@@ -32,6 +32,12 @@ Install dependencies:
 
 npm install
 
+env configuration
+
+VITE_ISSUANCE_BACKEND_URL=<Your Issuance Service URL>
+VITE_VERIFICATION_BACKEND_URL=<Your Verification Service URL>
+
+
 
 Run development server:
 
